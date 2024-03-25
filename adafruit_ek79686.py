@@ -26,7 +26,14 @@ Implementation Notes
 """
 
 import math
-import displayio
+
+# Compatibility with both CircuitPython 8.x.x and 9.x.x.
+# Remove after 8.x.x is no longer a supported release.
+try:
+    from epaperdisplay import EPaperDisplay
+    from fourwire import FourWire
+except ImportError:
+    from displayio import EPaperDisplay, FourWire
 
 __version__ = "0.0.0+auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_EK79686.git"
@@ -54,10 +61,10 @@ _STOP_SEQUENCE = b"\x02\x01\xff" b"\x07\x01\xa5"  # Power off  # Deep sleep
 
 
 # pylint: disable=too-few-public-methods
-class EK79686(displayio.EPaperDisplay):
+class EK79686(EPaperDisplay):
     """EK79686 display driver"""
 
-    def __init__(self, bus: displayio.FourWire, **kwargs) -> None:
+    def __init__(self, bus: FourWire, **kwargs) -> None:
         start_sequence = bytearray(_START_SEQUENCE)
 
         width = 8 * math.ceil(kwargs["width"] / 8)
