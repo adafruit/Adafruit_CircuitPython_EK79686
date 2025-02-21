@@ -21,7 +21,7 @@ extensions = [
     "sphinx.ext.todo",
 ]
 
-autodoc_mock_imports = ["displayio"]
+autodoc_mock_imports = ["epaperdisplay", "fourwire"]
 
 autodoc_preserve_defaults = True
 
