@@ -27,33 +27,28 @@ Implementation Notes
 
 import math
 
-# Compatibility with both CircuitPython 8.x.x and 9.x.x.
-# Remove after 8.x.x is no longer a supported release.
-try:
-    from epaperdisplay import EPaperDisplay
-    from fourwire import FourWire
-except ImportError:
-    from displayio import EPaperDisplay, FourWire
+from epaperdisplay import EPaperDisplay
+from fourwire import FourWire
 
 __version__ = "0.0.0+auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_EK79686.git"
 
 _START_SEQUENCE = (
-    b"\x00\x01\x0F"  # LUT from OTP 176x264
-    b"\x4D\x01\xAA"  # FITI cmd (???)
+    b"\x00\x01\x0f"  # LUT from OTP 176x264
+    b"\x4d\x01\xaa"  # FITI cmd (???)
     b"\x87\x01\x28"
     b"\x84\x01\x00"
     b"\x83\x01\x05"
-    b"\xA8\x01\xDF"
-    b"\xA9\x01\x05"
-    b"\xB1\x01\xE8"
-    b"\xAB\x01\xA1"
-    b"\xB9\x01\x10"
+    b"\xa8\x01\xdf"
+    b"\xa9\x01\x05"
+    b"\xb1\x01\xe8"
+    b"\xab\x01\xa1"
+    b"\xb9\x01\x10"
     b"\x88\x01\x80"
     b"\x90\x01\x02"
     b"\x86\x01\x15"
-    b"\x91\x01\x8D"
-    b"\xAA\x01\x0F"
+    b"\x91\x01\x8d"
+    b"\xaa\x01\x0f"
     b"\x04\x00"  # Power on
 )
 
