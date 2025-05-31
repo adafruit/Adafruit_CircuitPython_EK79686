@@ -28,7 +28,13 @@ Implementation Notes
 import math
 
 from epaperdisplay import EPaperDisplay
-from fourwire import FourWire
+
+try:
+    import typing
+
+    from fourwire import FourWire
+except ImportError:
+    pass
 
 __version__ = "0.0.0+auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_EK79686.git"

@@ -94,6 +94,7 @@ Usage Example
     import time
     import board
     import displayio
+    import fourwire
     import adafruit_ek79686
 
     # Used to ensure the display is free in CircuitPython
@@ -107,7 +108,7 @@ Usage Example
     epd_busy = board.D6
 
     # Create the displayio connection to the display pins
-    display_bus = displayio.FourWire(
+    display_bus = fourwire.FourWire(
         spi, command=epd_dc, chip_select=epd_cs, reset=epd_reset, baudrate=1000000
     )
     time.sleep(1)  # Wait a bit
