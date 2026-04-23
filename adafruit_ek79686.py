@@ -58,7 +58,7 @@ _START_SEQUENCE = (
     b"\x04\x00"  # Power on
 )
 
-_STOP_SEQUENCE = b"\x02\x01\xff" b"\x07\x01\xa5"  # Power off  # Deep sleep
+_STOP_SEQUENCE = b"\x02\x01\xff\x07\x01\xa5"  # Power off  # Deep sleep
 
 
 # pylint: disable=too-few-public-methods
